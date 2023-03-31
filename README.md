@@ -1,8 +1,10 @@
 # salmOS
 Light and Fast Operating System
 
-1.run "make" in your command prompt
-2.run "run.bat" in your command prompt (in Windows)
+1. download source code zip
+2. make "build" directory in source code
+3. run "make" in your command prompt
+4. run "run.bat" in your command prompt (in Windows)
 
 Licensed under Generel Public License.
 See LISENCE for details
