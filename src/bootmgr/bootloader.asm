@@ -19,15 +19,14 @@
 ; SalmOS code
 
 org 0x7C00															; Code start address
-bits 16															; 16 bits realmode
+bits 16																; 16 bits realmode
 	
-%define ENDL 0x0D, 0x0A 												; ENDL = end line = newline chracter 
+%define ENDL 0x0D, 0x0A 											; ENDL = end line = newline chracter 
 
 start:
-
+	; Jump to main label
 	JMP main
 	
-
 ; Prints some strings on screens
 ; Params:
 ; 	- ds:si point to string
@@ -59,7 +58,6 @@ print_str:
 	RET
 
 clear_screen:
-
 	; Clear Screen with soft wear bios interrupt
 	MOV ah, 06h														; 06h -> scroll up screen
 	MOV al, 00h 													; Number of line to move/scroll
@@ -94,7 +92,6 @@ set_cursur:
 	RET
 
 main:
-
 	; Setup data segment
 	MOV ax, 0 														; Beacause ds & es can't be written value directly
 	MOV ds, ax
@@ -114,12 +111,12 @@ main:
 	HLT 															; Halt cpu
 	
 .hlt_:
-
+	; Halt logic
 	JMP .hlt_														; Halt cpu as do inf loop
 
 
 ; Data Section
-boot_msg: DB 'starting salmOS - made by 0x000000EF', ENDL, 0 						; Declar String that include new line character(ENDL)
+boot_msg: DB 'starting salmOS - made by 0x000000EF', ENDL, 0 		; Declar String that include new line character(ENDL)
 
-TIMES 510-($-$$) DB 0
-DW 0AA55h
+TIMES 510-($-$$) DB 0 												; Generate a block of 0 byte that extends from current location in memory to the 510th byte in the 512-byte boot sector												
+DW 0AA55h															; Bootable disk signature
