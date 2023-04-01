@@ -1,6 +1,9 @@
 # salmOS
 Light and Fast Operating System
 
+What to do first:
+Download makefile, qemu-system-i386
+
 1. download source code zip
 2. make "build" directory in source code
 3. run "make" in your command prompt
