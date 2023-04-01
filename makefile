@@ -1,10 +1,10 @@
-ASM = nasm
+ASM=nasm
 
 BOOTSRC_DIR=src/bootmgr
 KERNELSRC_DIR=src/kernel
 BUILD_DIR=build
 
-.PHONY: all floppy_image kernel bootloader clean always 
+.PHONY: all floppy_image kernel bootmgr clean always 
 
 #
 # Floppy image
@@ -12,23 +12,22 @@ BUILD_DIR=build
 floppy_image: $(BUILD_DIR)/main_floppy.img
 
 
-$(BUILD_DIR)/main_floppy.img: bootloader kernel
+$(BUILD_DIR)/main_floppy.img: bootmgr kernel
 	cp $(BUILD_DIR)/kernel.bin $(BUILD_DIR)/main_floppy.img
 	truncate -s 1440k $(BUILD_DIR)/main_floppy.img
 
 #
 # Bootloader
 #
-bootloader: $(BUILD_DIR)/bootmgr.bin
+bootmgr: $(BUILD_DIR)/bootmgr.bin
 
-$(BUILD_DIR)/bootloader.bin: always
-	$(ASM) $(BOOTSRC_DIR)/bootmgr/bootloader.asm -f bin -o $(BUILD_DIR)/bootmgr.bin
+$(BUILD_DIR)/bootmgr.bin: always
+	$(ASM) $(BOOTSRC_DIR)/bootloader.asm -f bin -o $(BUILD_DIR)/bootmgr.bin
 
 	
 #
 # Kernel
 #
-
 kernel: $(BUILD_DIR)/kernel.bin
 
 $(BUILD_DIR)/kernel.bin: always
