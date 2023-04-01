@@ -6,10 +6,14 @@
 *.o
 *.obj
 *.bc
+*.img
 
 ### C ###
 # Prerequisites
 *.d
+
+### Devlog ###
+*.txt
 
 # Object files
 *.ko
