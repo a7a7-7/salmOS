@@ -1,22 +1,22 @@
-;Copyright (C) 2023 name of 0x000000EF-0x000000Ef
+; Copyright (C) 2023 name of 0x000000EF-0x000000EF
 
-;This program is free software; you can redistribute it and/or
-;modify it under the terms of the GNU General Public License
-;as published by the Free Software Foundation; either version 2
-;of the License, or (at your option) any later version.
+; This program is free software; you can redistribute it and/or
+; modify it under the terms of the GNU General Public License
+; as published by the Free Software Foundation; either version 2
+; of the License, or (at your option) any later version.
 
-;This program is distributed in the hope that it will be useful,
-;but WITHOUT ANY WARRANTY; without even the implied warranty of
-;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;GNU General Public License for more details.
+; This program is distributed in the hope that it will be useful,
+; but WITHOUT ANY WARRANTY; without even the implied warranty of
+; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+; GNU General Public License for more details.
 
-;You should have received a copy of the GNU General Public License
-;along with this program; if not, write to the Free Software
-;Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+; You should have received a copy of the GNU General Public License
+; along with this program; if not, write to the Free Software
+; Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 ; bootloader.asm (parent directory : bootmgr)
 ; Made by 0x000000EF
-; SalmOS code
+; salmOS bootloader code
 
 org 0x7C00															; Code start address
 bits 16																; 16 bits realmode
@@ -61,7 +61,7 @@ clear_screen:
 	; Clear Screen with soft wear bios interrupt
 	MOV ah, 06h														; 06h -> scroll up screen
 	MOV al, 00h 													; Number of line to move/scroll
-	MOV bh, 0CEh													; Set screen color 
+	MOV bh, 000Fh													; Set screen color 
 	MOV ch, 0d														; Row start point
 	MOV cl, 0d														; Col start point
 	MOV dh, 24d														; Row end point
@@ -105,7 +105,7 @@ main:
 	CALL clear_screen
 
 	; Print boot message
-	MOV si, boot_msg												; Move boot message to si to print Boot_msg 
+	MOV si, boot_msg1												; Move boot message to si to print Boot_msg 
 	CALL print_str													; Call string print function	
 	
 	HLT 															; Halt cpu
@@ -116,7 +116,7 @@ main:
 
 
 ; Data Section
-boot_msg: DB 'starting salmOS - made by 0x000000EF', ENDL, 0 		; Declar String that include new line character(ENDL)
+boot_msg1: DB 'starting salmOS - made by 0x000000EF', ENDL, 0 		; Declar String that include new line character(ENDL)
 
 TIMES 510-($-$$) DB 0 												; Generate a block of 0 byte that extends from current location in memory to the 510th byte in the 512-byte boot sector												
 DW 0AA55h															; Bootable disk signature
