@@ -2,7 +2,11 @@
 Light and Fast Operating System
 
 What to do first:
-Download makefile, qemu-system-i386
+Download makefile, qemu-system-i386 or VMware workstation
+
+*ATTENTION!!!*
+If you run with VMware workstation, you should select Operating System MS-DOS when you create virtual machine 
+and also add Hardware floppy drive and change configuration : floppy drive to use physical drive -> use floppy image file(select builded img file)
 
 1. download source code zip
 2. make "build" directory in source code
