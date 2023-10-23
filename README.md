@@ -16,7 +16,7 @@ and also add Hardware floppy drive and change configuration : floppy drive to us
 Licensed under Generel Public License.
 See LISENCE for details
 
-This project made by 0x000000EF-0x000000EF
-Coded by 0x000000EF-0x000000EF
-Contributor 0x000000EF-0x000000EF
-Special thanks 0x000000EF
+This project made by a7a7-7
+Coded by a7a7-7
+Contributor a7a7-7
+Special thanks a7a7-7
