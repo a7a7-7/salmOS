@@ -1,4 +1,4 @@
-; Copyright (C) 2023 name of 0x000000EF-0x000000EF
+; Copyright (C) 2023 name of a7a7-7
 
 ; This program is free software; you can redistribute it and/or
 ; modify it under the terms of the GNU General Public License
@@ -15,7 +15,7 @@
 ; Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 ; bootloader.asm (parent directory : bootmgr)
-; Made by 0x000000EF
+; Made by a7a7-7
 ; salmOS bootloader code
 
 org 0x7C00															; Code start address
